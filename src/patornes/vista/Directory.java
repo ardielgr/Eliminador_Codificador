@@ -38,6 +38,7 @@ public class Directory extends JFrame {
 			
 			statusbar.setText("You chose " + filelist);
 			Reader lectura = new Reader(ListaPath);
+			
 		}
 		else {
 			statusbar.setText("You canceled.");
