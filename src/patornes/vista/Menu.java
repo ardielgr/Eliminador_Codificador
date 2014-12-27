@@ -40,7 +40,7 @@ public class Menu implements ActionListener, ItemListener {
 		//Create the menu bar.
 		menuBar = new JMenuBar();
 
-		//Build the first menu.
+		//Primer Menu
 		menu = new JMenu("Archivo");
 		menu.setMnemonic(KeyEvent.VK_A);
 		menu.getAccessibleContext().setAccessibleDescription(
