@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.4" icons="true" always-add-relationships="true" generalizations="true" realizations="true" 
+  associations="true" dependencies="true" nesting-relationships="true">  
+  <package id="1" language="java" name="patornes.vista" project="Eliminador_Codificador" 
+    file="/Eliminador_Codificador/src/patornes/vista" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="105" x="37" y="250"/>    
+    <display autosize="true" stereotype="true" accessors="true"/>  
+  </package>  
+  <package id="2" language="java" name="patrones.codificacion" project="Eliminador_Codificador" 
+    file="/Eliminador_Codificador/src/patrones/codificacion" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="147" x="467" y="243"/>    
+    <display autosize="true" stereotype="true" accessors="true"/>  
+  </package>  
+  <package id="3" language="java" name="patrones.principal" project="Eliminador_Codificador" 
+    file="/Eliminador_Codificador/src/patrones/principal" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="127" x="208" y="63"/>    
+    <display autosize="true" stereotype="true" accessors="true"/>  
+  </package>  
+  <dependency id="4">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <dependency id="5">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
