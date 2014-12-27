@@ -123,12 +123,37 @@ public class Menu implements ActionListener, ItemListener {
 		menu.addSeparator();
 		ButtonGroup group = new ButtonGroup();
 //
-		rbMenuItem = new JRadioButtonMenuItem("Random_Change");
+		cbMenuItem = new JCheckBoxMenuItem("Random Change");
+		cbMenuItem.addItemListener(this);
+		menu.add(cbMenuItem);
+
+		cbMenuItem = new JCheckBoxMenuItem("Row Change");
+		cbMenuItem.addItemListener(this);
+		menu.add(cbMenuItem);
+
+		menu.addSeparator();
+		rbMenuItem = new JRadioButtonMenuItem("Encriptado");
 		rbMenuItem.setSelected(false);
-		rbMenuItem.setMnemonic(KeyEvent.VK_R);
 		group.add(rbMenuItem);
 		rbMenuItem.addActionListener(this);
 		menu.add(rbMenuItem);
+		
+		menu = new JMenu("Run");
+		menu.setMnemonic(KeyEvent.VK_R);
+		menu.getAccessibleContext().setAccessibleDescription(
+				"The only menu in this program that has menu items");
+		menuBar.add(menu);
+
+		//a group of JMenuItems
+		menuItem = new JMenuItem("Run",
+				KeyEvent.VK_T);
+		//menuItem.setMnemonic(KeyEvent.VK_T); //used constructor instead
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(
+				KeyEvent.VK_2, ActionEvent.ALT_MASK));
+		menuItem.getAccessibleContext().setAccessibleDescription(
+				"This doesn't really do anything");
+		menuItem.addActionListener(this);
+		menu.add(menuItem);
 
 		return menuBar;
 	}
@@ -202,6 +227,9 @@ public class Menu implements ActionListener, ItemListener {
 			//	       //     sfc.setVisible(true);
 			//	            
 			//	            sfc.setVisible(true);
+		}
+		if (source.getText() == "Run"){
+			System.out.println("RUN RUNEANDO");
 		}
 	}
 	
