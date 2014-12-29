@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
-public class FileChooser extends JFrame {
+public class CopyOfFileChooser extends JFrame {
 
 	ArrayList<String> choose = new ArrayList();
-	public FileChooser() {
+	public CopyOfFileChooser() {
 		super("File Chooser Test Frame");
 		setSize(350, 200);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -28,7 +28,7 @@ public class FileChooser extends JFrame {
 			public void actionPerformed(ActionEvent ae) {
 				JFileChooser chooser = new JFileChooser();
 				chooser.setMultiSelectionEnabled(true);
-				int option = chooser.showOpenDialog(FileChooser.this);
+				int option = chooser.showOpenDialog(CopyOfFileChooser.this);
 				System.out.println("Option ->"+option);
 				if (option == JFileChooser.APPROVE_OPTION) {
 					File[] sf = chooser.getSelectedFiles();
@@ -50,7 +50,7 @@ public class FileChooser extends JFrame {
 		saveButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				JFileChooser chooser = new JFileChooser();
-				int option = chooser.showSaveDialog(FileChooser.this);
+				int option = chooser.showSaveDialog(CopyOfFileChooser.this);
 				if (option == JFileChooser.APPROVE_OPTION) {
 					statusbar.setText("You saved " + ((chooser.getSelectedFile()!=null)?
 							chooser.getSelectedFile().getName():"nothing"));
@@ -67,7 +67,7 @@ public class FileChooser extends JFrame {
 			public void actionPerformed(ActionEvent ae) {
 				JFileChooser chooser = new JFileChooser();
 				chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-				int option = chooser.showOpenDialog(FileChooser.this);
+				int option = chooser.showOpenDialog(CopyOfFileChooser.this);
 				if (option == JFileChooser.APPROVE_OPTION) {
 					statusbar.setText("You opened " + ((chooser.getSelectedFile()!=null)?
 							chooser.getSelectedFile().getName():"nothing"));

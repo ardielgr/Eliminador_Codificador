@@ -37,8 +37,7 @@ public class Directory extends JFrame {
 			System.out.println("He elegido = "+ filelist);
 			
 			statusbar.setText("You chose " + filelist);
-			Reader lectura = new Reader(ListaPath);
-			
+//			Reader lectura = new Reader(ListaPath);
 		}
 		else {
 			statusbar.setText("You canceled.");

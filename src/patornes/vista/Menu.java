@@ -8,6 +8,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -24,12 +25,16 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 
+import patrones.codificacion.ICodificacion;
+import patrones.codificacion.Random_Change;
+
 
 public class Menu implements ActionListener, ItemListener {
 	JTextArea output;
 	JScrollPane scrollPane;
 	String newline = "\n";
-
+	ArrayList<String> Option = new ArrayList();
+	
 	public JMenuBar createMenuBar() {
 		JMenuBar menuBar;
 		JMenu menu, submenu;
@@ -192,6 +197,11 @@ public class Menu implements ActionListener, ItemListener {
 	
 	public void itemStateChanged(ItemEvent e) {
         JMenuItem source = (JMenuItem)(e.getSource());
+        
+        
+        
+        
+        
         String s = "Item event detected."
                    + newline
                    + "    Event source: " + source.getText()
@@ -200,8 +210,11 @@ public class Menu implements ActionListener, ItemListener {
                    + "    New state: "
                    + ((e.getStateChange() == ItemEvent.SELECTED) ?
                      "selected":"unselected");
+        Option.add(source.getText());
         output.append(s + newline);
         output.setCaretPosition(output.getDocument().getLength());
+        
+        
     }
  
 
@@ -210,6 +223,7 @@ public class Menu implements ActionListener, ItemListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		ICodificacion ejemplo;
 		final JLabel statusbar = 
 				new JLabel("Output of your selection will go here");
 		JMenuItem source = (JMenuItem)(e.getSource());
@@ -222,14 +236,19 @@ public class Menu implements ActionListener, ItemListener {
 		if (source.getText() == "Abrir Archivo"){
 			System.out.println("Me entra aqui");
 			Directory directorio = new Directory();
-			
-			//	            FileChooser sfc = new FileChooser();
-			//	       //     sfc.setVisible(true);
-			//	            
-			//	            sfc.setVisible(true);
 		}
 		if (source.getText() == "Run"){
-			System.out.println("RUN RUNEANDO");
+			for (int indiceOpciones = 0; indiceOpciones < Option.size(); indiceOpciones++){
+				if (Option.get(indiceOpciones) == "Random Change"){
+					System.out.println("RUN RUNEANDO en RANDOM");
+					ejemplo = new Random_Change();
+					ejemplo.lectura_fichero(null);
+				}
+				if (Option.get(indiceOpciones) == "Row Change"){
+						System.out.println(("Run runeando en ROW CHANGE"));
+				}
+			}
+				
 		}
 	}
 	

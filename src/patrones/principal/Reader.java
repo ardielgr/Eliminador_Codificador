@@ -20,6 +20,15 @@ public class Reader {
 		}
 		//fichero_ = new RandomAccessFile(variable_, "rw");
 	}
+	
+	public void Lectura(ArrayList<String> listaPath) throws IOException {
+		for (int i = 0; i < listaPath.size(); i++){
+			variable_ = listaPath.get(i);
+			fichero_ = new RandomAccessFile(variable_, "rw");
+			OpenFile(fichero_);
+		}
+		//fichero_ = new RandomAccessFile(variable_, "rw");
+	}
 	public void OpenFile(RandomAccessFile fichero_) throws IOException{
 		try{
 			
