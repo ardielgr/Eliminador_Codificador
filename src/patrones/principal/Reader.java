@@ -11,13 +11,15 @@ public class Reader {
 	ArrayList<String> var;
 	static RandomAccessFile fichero_;
 	static ArrayList<String> buffer = new ArrayList<String>();
+	static ArrayList<String> buffer2 = new ArrayList<String>();
 	
 	public Reader(ArrayList<String> listaPath) throws IOException {
 		for (int i = 0; i < listaPath.size(); i++){
 			variable_ = listaPath.get(i);
 			System.out.println("EL VALOR DE VARIABLE_ es --> "+variable_);
 			fichero_ = new RandomAccessFile(variable_, "rw");
-			OpenFile(fichero_);
+			buffer2 = OpenFile(fichero_);
+			System.out.println("Estoy leyendo buffer2");
 		}
 		//fichero_ = new RandomAccessFile(variable_, "rw");
 	}
@@ -30,7 +32,7 @@ public class Reader {
 		}
 		//fichero_ = new RandomAccessFile(variable_, "rw");
 	}
-	public void OpenFile(RandomAccessFile fichero_) throws IOException{
+	public ArrayList<String> OpenFile(RandomAccessFile fichero_) throws IOException{
 		String line;
 		line = fichero_.readLine();
 		System.out.println("Estoy en OpenFile");
@@ -41,6 +43,7 @@ public class Reader {
 			buffer.add(line);
 			line = fichero_.readLine();
 		}
+		return buffer;
 	}
 
 }
