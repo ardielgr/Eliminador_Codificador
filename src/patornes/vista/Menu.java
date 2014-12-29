@@ -8,6 +8,8 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.IOException;
+//import java.io.Reader;
 import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
@@ -28,6 +30,7 @@ import javax.swing.KeyStroke;
 import patrones.codificacion.ICodificacion;
 import patrones.codificacion.Random_Change;
 import patornes.vista.Directory;
+import patrones.principal.Reader;
 
 
 public class Menu implements ActionListener, ItemListener {
@@ -224,7 +227,7 @@ public class Menu implements ActionListener, ItemListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-	//	ArrayList<String> lista = new ArrayList();
+		ArrayList<String> lista = new ArrayList();
 		
 		ICodificacion ejemplo;
 		final JLabel statusbar = 
@@ -239,16 +242,32 @@ public class Menu implements ActionListener, ItemListener {
 		if (source.getText() == "Abrir Archivo"){
 			System.out.println("Me entra aqui");
 			Directory directorio = new Directory();
+			lista = directorio.geteleccion();  //Consigo la lista de directorios
 		}
 		if (source.getText() == "Run"){
 			for (int indiceOpciones = 0; indiceOpciones < Option.size(); indiceOpciones++){
 				if (Option.get(indiceOpciones) == "Random Change"){
 					System.out.println("RUN RUNEANDO en RANDOM");
+					/*
+					 * Aqui deberia abrir el archivo
+					 */
+					try {
+						System.out.println("Paso por aqui");
+						Reader leer = new Reader(lista);
+						leer.OpenFile(null); //AQUI ESTA EL FALLO
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				
 					ejemplo = new Random_Change();
 					ejemplo.lectura_fichero(null);
 				}
 				if (Option.get(indiceOpciones) == "Row Change"){
 						System.out.println(("Run runeando en ROW CHANGE"));
+						
+						
 				}
 			}
 				
