@@ -30,15 +30,14 @@ public class Reader {
 		//fichero_ = new RandomAccessFile(variable_, "rw");
 	}
 	public void OpenFile(RandomAccessFile fichero_) throws IOException{
-		try{
-			
-			do {
-				System.out.println(fichero_.readLine());
-			}	while ((fichero_.readLine()) !=null);
-		}
-		catch(IOException e){
-			System.out.println("Error con el fichero");
-			return;
+		String line;
+		line = fichero_.readLine();
+		while( line != null )
+		{
+			System.out.println(line);
+			System.out.println("----------");
+			buffer.add(line);
+			line = fichero_.readLine();
 		}
 	}
 

@@ -47,10 +47,9 @@ public class Directory extends JFrame {
 			new JLabel("Output of your selection will go here");
 
 	
-//	public ArrayList<String> eleccion(){
-//		
-//		
-//		return ListaPath;
-//		
-//	}
+	public ArrayList<String> geteleccion(){
+
+		return ListaPath;
+		
+	}
 }

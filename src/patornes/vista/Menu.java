@@ -27,6 +27,7 @@ import javax.swing.KeyStroke;
 
 import patrones.codificacion.ICodificacion;
 import patrones.codificacion.Random_Change;
+import patornes.vista.Directory;
 
 
 public class Menu implements ActionListener, ItemListener {
@@ -223,6 +224,8 @@ public class Menu implements ActionListener, ItemListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+	//	ArrayList<String> lista = new ArrayList();
+		
 		ICodificacion ejemplo;
 		final JLabel statusbar = 
 				new JLabel("Output of your selection will go here");
