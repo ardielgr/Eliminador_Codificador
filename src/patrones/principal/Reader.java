@@ -15,6 +15,7 @@ public class Reader {
 	public Reader(ArrayList<String> listaPath) throws IOException {
 		for (int i = 0; i < listaPath.size(); i++){
 			variable_ = listaPath.get(i);
+			System.out.println("EL VALOR DE VARIABLE_ es --> "+variable_);
 			fichero_ = new RandomAccessFile(variable_, "rw");
 			OpenFile(fichero_);
 		}
@@ -32,6 +33,7 @@ public class Reader {
 	public void OpenFile(RandomAccessFile fichero_) throws IOException{
 		String line;
 		line = fichero_.readLine();
+		System.out.println("Estoy en OpenFile");
 		while( line != null )
 		{
 			System.out.println(line);

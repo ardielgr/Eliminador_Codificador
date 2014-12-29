@@ -38,6 +38,7 @@ public class Menu implements ActionListener, ItemListener {
 	JScrollPane scrollPane;
 	String newline = "\n";
 	ArrayList<String> Option = new ArrayList();
+	ArrayList<String> lista = new ArrayList();
 	
 	public JMenuBar createMenuBar() {
 		JMenuBar menuBar;
@@ -227,7 +228,7 @@ public class Menu implements ActionListener, ItemListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		ArrayList<String> lista = new ArrayList();
+//		ArrayList<String> lista = new ArrayList();
 		
 		ICodificacion ejemplo;
 		final JLabel statusbar = 
@@ -242,7 +243,7 @@ public class Menu implements ActionListener, ItemListener {
 		if (source.getText() == "Abrir Archivo"){
 			System.out.println("Me entra aqui");
 			Directory directorio = new Directory();
-			lista = directorio.geteleccion();  //Consigo la lista de directorios
+			lista = directorio.geteleccion();  //Consigo la lista de directorios... va a ser que no
 		}
 		if (source.getText() == "Run"){
 			for (int indiceOpciones = 0; indiceOpciones < Option.size(); indiceOpciones++){
@@ -253,8 +254,11 @@ public class Menu implements ActionListener, ItemListener {
 					 */
 					try {
 						System.out.println("Paso por aqui");
+						for (int i = 0; i < lista.size(); i++){
+							System.out.println(lista.get(i));
+						}
 						Reader leer = new Reader(lista);
-						leer.OpenFile(null); //AQUI ESTA EL FALLO
+					//	leer.OpenFile(null); //AQUI ESTA EL FALLO, creo que no deberia estar aqui.
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
